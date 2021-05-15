@@ -13,11 +13,12 @@ print(f'O pid é : {pid}')  # Impressão para verificar o valor do pid
 
 with open('pid.txt',mode='w' ) as arquivo:  # Abre o arquivo pid, como arquivo -> facilita a programação
     i = 0  # Inicia a variável de contagem i com valor zero
-    while (i < 3):
-        print('2: I am alive')
-        arquivo.write(pid)  # Escreve a variável pid no arquivo txt
-        arquivo.write('\n')  # Pula uma linha no arquivo
-        i = i + 1
-        sleep(2)  # Aguarda 2 segundos antes da próxima execução
+    arquivo.write(pid)  # Escreve a variável pid no arquivo txt
+    arquivo.write('\n')  # Pula uma linha no arquivo
 
+while (i < 3):
+    print('2: I am alive')        
+    i = i + 1
+    sleep(2)  # Aguarda 2 segundos antes da próxima execução
+    
 print("2: I gonna die now, bye")  # Final do programa
