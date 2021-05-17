@@ -7,6 +7,7 @@
 # Caso não existe um pid para python3, imprime outra mensagem e executa o programa python.py
 # Comando echo -> imprime a mensagem dentro do terminal
 # Comando sleep -> pausa o programa por x segundos
+# Comando break -> interrompe a execução do programa caso encontre algum erro
 
 while true; do
     if [ -e pid.txt ]; then
@@ -15,11 +16,18 @@ while true; do
             if [ "$( ps -p $line -o comm= )" = "python3" ];
             then
                 echo "1: It is alive"
-                sleep 5
+                sleep 2
             else
                 echo "1: It is dead"
-                sleep 5
-                python3 python.py 
+                sleep 2
+                if [ -e pytho.py ]
+                then
+                    python3 python.py
+                else
+                date >> "cromai.log"
+                echo "Arquivo python.py nao encontrado!" >> "cromai.log"
+                break  
+                fi           
             fi
         done < pid.txt
     else
