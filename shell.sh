@@ -20,7 +20,7 @@ while true; do
             else
                 echo "1: It is dead"
                 sleep 2
-                if [ -e pytho.py ]
+                if [ -e python.py ]
                 then
                     python3 python.py
                 else
